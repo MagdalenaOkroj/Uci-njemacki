@@ -1,15 +1,8 @@
 body {
-  background-color: black;
+  background-color: rgb(22, 22, 22);
   color: aliceblue;
   margin: 0;
-  
-
-  /* wo setze ich das display Grid um es auf die linke seite neben den Bildern zu bekommen? */
-  /* display: grid;
-  grid-template-columns: 1fr 300px;
-  grid-template-rows: repeat(3, 200px) repeat(2, 150px) 100px 200px;
-  gap: 20px;
-  padding: 20px; */
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 header {
@@ -22,6 +15,7 @@ header {
   left: 0;
   z-index: 10;
   width: 100%;
+  height: 50px;
 }
 
 a {
@@ -30,10 +24,17 @@ a {
 }
 
 .logo {
-  width: 75px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 300px;
   font-size: 10px;
   font-weight: bold;
   background-color: rgb(100, 2, 2);
+}
+
+h2 {
+  padding: 10px;
 }
 
 nav li {
@@ -42,32 +43,39 @@ nav li {
   margin: 25px;
   list-style: none;
   font-size: 20px;
+  font-weight: bold;
+}
+
+a:hover {
+  background-color: rgb(22, 22, 22);
+  color: yellow;
+  border-radius: 10px;
+  padding: 20px;
 }
 
 /* mitte */
 
 main {
   display: grid;
-  grid-template-columns: 250px 200px 200px 200px 200px 200px 200px 250px;
-  grid-template-rows: 150px 50px 400px 400px 1fr; 
-  margin-top: 175px;
+  grid-template-columns: 250px repeat(6, 200px) 250px;
+  grid-template-rows: 150px 50px repeat(3, 400px);
+  margin-top: 100px;
   gap: 30px;
 }
 
-.text-oben{
-grid-column: 2/7;
+.text-oben {
+  grid-column: 2/7;
   grid-row: 1/2;
-  
 }
 
-h3{
+h3 {
   color: yellow;
   text-decoration: underline;
   grid-column: 2/3;
   grid-row: 2/3;
 }
 
-.Werbebanner1{
+.Werbebanner1 {
   grid-column: 1/2;
   grid-row: 2/5;
   justify-content: center;
@@ -75,61 +83,180 @@ h3{
   width: 200px;
 }
 
-.Werbebanner2{
+.Werbebanner2 {
   grid-column: 8/9;
   grid-row: 2/5;
   justify-content: center;
   width: 200px;
 }
 
-.kuca{
+.kuca {
   grid-column: 2/3;
   grid-row: 3/4;
 }
- 
-h3{
-  color: yellow;
 
-} 
-
-
-.stol{
+.stol {
   grid-column: 3/4;
   grid-row: 3/4;
 }
 
-.stolca{
+.stolca {
   grid-column: 4/5;
   grid-row: 3/4;
 }
 
-.krevet{
+.krevet {
   grid-column: 5/6;
   grid-row: 3/4;
 }
 
-.kupatilo{
+.kupatilo {
   grid-column: 6/7;
   grid-row: 3/4;
 }
 
-.kuhnija{ 
+.kuhnija {
   grid-column: 7/8;
   grid-row: 3/4;
 }
 
-.dnevna_soba{
+.dnevna_soba {
   grid-column: 2/3;
   grid-row: 4/5;
-} 
+}
+
+.vrata {
+  grid-column: 3/4;
+  grid-row: 4/5;
+}
+
+.prozor {
+  grid-column: 4/5;
+  grid-row: 4/5;
+}
+
+.zid {
+  grid-column: 5/6;
+  grid-row: 4/5;
+}
+
+.pod {
+  grid-column: 6/7;
+  grid-row: 4/5;
+}
+
+.krov {
+  grid-column: 7/8;
+  grid-row: 4/5;
+}
+
+.stepenice {
+  grid-column: 2/3;
+  grid-row: 5/6;
+}
+
+.plafon {
+  grid-column: 3/4;
+  grid-row: 5/6;
+}
+
+.radijator {
+  grid-column: 4/5;
+  grid-row: 5/6;
+}
+
+.dimnjak {
+  grid-column: 5/6;
+  grid-row: 5/6;
+}
+
+.kamin {
+  grid-column: 6/7;
+  grid-row: 5/6;
+}
+
+/* Flipfunktion */
+
+.flip-card {
+  background-color: transparent;
+  width: 200px;
+  height: 300px;
+  perspective: 1000px; /* Diese Funktion verstehe ich gar nicht wozu die nützlich ist */  
+  /* Remove this if you don't want the 3D effect */
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 1.6s;
+  transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+
+.flip-card-front {
+  background-color: #bbb;
+  color: black;
+}
+
+.flip-card-back {
+  background-color: rgb(100, 2, 2);
+  color: white;
+  font-size: x-large;
+  transform: rotateY(180deg);
+}
+
+.info {
+  font: normal 30px arial;
+}
 
 /* unten */
 form {
-
   grid-column: 3/4;
-  grid-row: 5/6;
-  
-  margin: 20px;
+  grid-row: 7/8;
+  padding: 20px;
+
+}
+
+label {
+  font-size: 18px;
+  margin: 3px;
+}
+
+input {
+  padding: 10px;
+  padding-right: 240px;
+  margin: 3px;
+  border-radius: 3px;
+}
+
+textarea {
+  padding: 10px;
+  padding-right: 125px;
+  margin: 3px;
+  border-radius: 3px;
+}
+
+button {
+  background-color: blue;
+  color: aliceblue;
+  padding: 10px;
+  padding-right: 75px;
+  margin: 3px;
+  margin-top: 7px;
+  border-radius: 5px;
 }
 
 footer {
@@ -139,9 +266,13 @@ footer {
   background-color: rgb(100, 2, 2);
 }
 
-button {
-  background-color: blue;
-  color: aliceblue;
-  padding: 10px;
-  border-radius: 5px;
+/* Responsive fehlt noch */
+
+@media screen { 
+  
 }
+
+
+
+
+
